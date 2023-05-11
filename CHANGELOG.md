@@ -3,6 +3,19 @@
 
 ## v1.0.0
 
+[compare changes](https://github.com/vexip-ui/vexip-ui/compare/v1.0.0-dev.0...v1.0.0)
+
+
+### 🤖 CI
+
+  - Change prepack to build ([af66365](https://github.com/vexip-ui/vexip-ui/commit/af66365))
+
+### ❤️  Contributors
+
+- Qmhc
+
+## v1.0.0
+
 
 ### 🏡 Chore
 
