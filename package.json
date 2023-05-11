@@ -36,11 +36,23 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/vexip-ui/vexip-ui/tree/main/common/nuxt#readme",
+  "keywords": [
+    "nuxt",
+    "vexip-ui",
+    "components",
+    "vue",
+    "vexip",
+    "module",
+    "plugin",
+    "vite"
+  ],
+  "homepage": "https://github.com/vexip-ui/nuxt#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vexip-ui/vexip-ui.git",
-    "directory": "common/nuxt"
+    "url": "git+https://github.com/vexip-ui/nuxt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vexip-ui/nuxt/issues"
   },
   "dependencies": {
     "@nuxt/kit": "^3.4.3",
@@ -83,5 +95,10 @@
   "peerDependencies": {
     "@vexip-ui/icons": ">=1.0.0",
     "vexip-ui": ">=2.1.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "conventional-changelog-angular@5.0.13": "patches/conventional-changelog-angular@5.0.13.patch"
+    }
   }
 }
