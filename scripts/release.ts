@@ -16,7 +16,6 @@ const args = minimist<{
 }>(process.argv.slice(2))
 
 const isDryRun = args.dry || args.d
-const releaseTag = args.tag || args.t
 
 const rootDir = resolve(fileURLToPath(import.meta.url), '../..')
 
@@ -121,29 +120,6 @@ async function main() {
     await runIfNotDry('git', ['commit', '-m', `release: v${version}`])
   } else {
     logSkipped('No changes to commit')
-  }
-
-  // 发布
-  logStep('Publishing package...')
-
-  try {
-    await runIfNotDry(
-      'npm',
-      [
-        'publish',
-        '--registry=https://registry.npmjs.org/',
-        ...(releaseTag ? ['--tag', releaseTag] : [])
-      ],
-      { stdio: 'pipe' }
-    )
-
-    logger.successText(`Successfully published v${version}'`)
-  } catch (err: any) {
-    if (err.stderr?.match?.(/previously published/)) {
-      logger.errorText(`Skipping already published v'${version}'`)
-    } else {
-      throw err
-    }
   }
 
   // 推送到远程仓库

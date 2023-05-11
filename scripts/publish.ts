@@ -1,5 +1,7 @@
+import { resolve } from 'node:path'
+import { readFile } from 'node:fs/promises'
 import minimist from 'minimist'
-import { logger, run, getPackageInfo } from './utils'
+import { rootDir, logger, run } from './utils'
 
 const args = minimist<{
   d?: boolean,
@@ -8,24 +10,12 @@ const args = minimist<{
   tag?: string
 }>(process.argv.slice(2))
 
-const target = args._[0]
 const isDryRun = args.dry || args.d
 const releaseTag = args.tag || args.t
 
 async function main() {
-  let inputPkg = ''
-
-  if (target?.startsWith('v')) {
-    inputPkg = 'vexip-ui'
-  } else if (target?.includes('@')) {
-    [inputPkg] = target.split('@')
-
-    if (['hooks', 'icons', 'plugins', 'utils'].includes(inputPkg)) {
-      inputPkg = `common/${inputPkg}`
-    }
-  }
-
-  const { pkgDir, currentVersion } = await getPackageInfo(inputPkg)
+  const pkg = JSON.parse(await readFile(resolve(rootDir, 'package.json'), 'utf-8'))
+  const currentVersion: string = pkg.version
 
   logger.withStartLn(() => logger.infoText('Publishing package...'))
 
@@ -44,10 +34,15 @@ async function main() {
 
   if (releaseTag) {
     publishArgs.push('--tag', releaseTag)
+  } else if (currentVersion.includes('-')) {
+    const [, preversion] = currentVersion.split('-')
+    const tag = preversion && preversion.split('.')[0]
+
+    tag && publishArgs.push('--tag', tag)
   }
 
   try {
-    await run('pnpm', publishArgs, { stdio: 'pipe', cwd: pkgDir })
+    await run('pnpm', publishArgs, { stdio: 'pipe', cwd: rootDir })
     logger.successText(`Successfully published v${currentVersion}'`)
   } catch (error) {
     if (error.stderr?.match(/previously published/)) {
