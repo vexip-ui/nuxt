@@ -84,6 +84,9 @@ devDependencies:
   nuxt:
     specifier: ^3.4.3
     version: 3.4.3(@types/node@18.0.0)(eslint@8.39.0)(rollup@3.21.6)(typescript@4.9.5)
+  pinst:
+    specifier: ^3.0.0
+    version: 3.0.0
   prompts:
     specifier: ^2.4.2
     version: 2.4.2
@@ -5846,6 +5849,12 @@ packages:
   /pify@3.0.0:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
+    dev: true
+
+  /pinst@3.0.0:
+    resolution: {integrity: sha512-cengSmBxtCyaJqtRSvJorIIZXMXg+lJ3sIljGmtBGUVonMnMsVJbnzl6jGN1HkOWwxNuJynCJ2hXxxqCQrFDdw==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
     dev: true
 
   /pkg-types@1.0.3:
