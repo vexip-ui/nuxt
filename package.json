@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "qmhc",
   "description": "Nuxt module for Vexip UI",
+  "packageManager": "pnpm@8.2.0",
   "scripts": {
     "changelog": "changelogen --release",
     "dev": "nuxi dev playground",

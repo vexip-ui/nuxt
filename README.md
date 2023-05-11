@@ -16,7 +16,7 @@
   <a href="https://nuxt.com/" target="_blank" rel="noopener noreferrer">
     Nuxt
   </a>
-  Module of
+  Module for
   <a href="https://www.vexipui.com/" target="_blank" rel="noopener noreferrer">
     Vexip UI
   </a>
@@ -140,6 +140,14 @@ export interface ModuleOptions {
 }
 ```
 
+## Contributors
+
+Thanks for all their contributions!
+
+<a href="https://github.com/vexip-ui/nuxt/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=vexip-ui/nuxt" />
+</a>
+
 ## Development
 
 ```sh
@@ -162,3 +170,7 @@ pnpm run lint
 pnpm run test
 pnpm run test:watch
 ```
+
+## License
+
+All in [MIT](./LICENSE.md) license.
