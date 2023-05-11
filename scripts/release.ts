@@ -100,7 +100,7 @@ async function main() {
 
   if (!isDryRun) {
     await run('pnpm', ['dev:prepare'])
-    await run('pnpm', ['prepack'])
+    await run('pnpm', ['build'])
   } else {
     logSkipped()
   }

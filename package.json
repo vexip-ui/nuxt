@@ -7,6 +7,7 @@
   "description": "Nuxt module for Vexip UI",
   "packageManager": "pnpm@8.2.0",
   "scripts": {
+    "build": "nuxt-module-build",
     "changelog": "changelogen --release",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
@@ -15,7 +16,6 @@
     "postpublish": "pinst --enable",
     "precommit": "lint-staged -c ./.husky/.lintstagedrc -q",
     "preinstall": "npx only-allow pnpm",
-    "prepack": "nuxt-module-build",
     "prepare": "is-ci || husky install",
     "prepublishOnly": "pinst --disable",
     "publish:ci": "tsx scripts/publish.ts",
