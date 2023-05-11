@@ -92,19 +92,19 @@ export const transform = createUnplugin((options: TransformOptions) => {
         source.replace(directivesRegExp, (full, name: string) => {
           name = `v${toCapitalCase(name)}`
           const relatedComponents = directives[name]
-  
+
           if (relatedComponents) {
             const alias = `__vexip_directive_${index++}`
-  
+
             imports.add(`import { ${name} as ${alias} } from 'vexip-ui'`)
-  
+
             for (const component of relatedComponents) {
               !matched.has(component) && addImports(getSideEffects(component, options))
             }
-  
+
             return alias
           }
-  
+
           return full
         })
       }

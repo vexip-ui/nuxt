@@ -86,7 +86,7 @@ export default defineNuxtModule<ModuleOptions>({
         from: 'vexip-ui',
         imports: libPlugins.map(plugin => [plugin, `${prefix}${plugin}`])
       })
-      
+
       if (options.resolveIcon) {
         addImportsSources({
           from: '@vexip-ui/icons',

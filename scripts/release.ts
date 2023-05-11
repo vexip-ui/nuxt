@@ -64,10 +64,10 @@ async function main() {
   const version =
     release === 'custom'
       ? (await prompts({
-        type: 'text',
-        name: 'version',
-        message: 'Input custom version:'
-      })).version
+          type: 'text',
+          name: 'version',
+          message: 'Input custom version:'
+        })).version
       : release.match(/\((.*)\)/)?.[1]
 
   if (!semver.valid(version)) {
@@ -97,10 +97,11 @@ async function main() {
   await writeFile(resolve(rootDir, 'package.json'), JSON.stringify(pkg, null, 2) + '\n')
 
   // 构建库
-  logStep(`Building package...`)
+  logStep('Building package...')
 
   if (!isDryRun) {
-    await run('pnpm', ['build'])
+    await run('pnpm', ['dev:prepare'])
+    await run('pnpm', ['prepack'])
   } else {
     logSkipped()
   }
@@ -157,7 +158,7 @@ async function main() {
   if (isDryRun) {
     logger.success('Dry run finished - run git diff to see package changes')
   } else {
-    logger.success(`Release successfully`)
+    logger.success('Release successfully')
   }
 
   logger.ln()
