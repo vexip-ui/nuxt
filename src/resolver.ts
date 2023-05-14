@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs'
 import { getPackageInfoSync, resolveModule } from 'local-pkg'
 import { compare } from 'compare-versions'
 import { toKebabCase } from '@vexip-ui/utils'
+
 import * as Icons from '@vexip-ui/icons'
 
 import type { ModuleOptions } from './types'

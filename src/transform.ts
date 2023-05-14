@@ -8,7 +8,7 @@ import type { ModuleOptions } from './types'
 
 export interface TransformOptions extends ModuleOptions {
   plugins: string[],
-  sourceMap: boolean
+  sourcemap: boolean
 }
 
 const componentsRegExp = /(?<=[ (])_?resolveComponent\(\s*["'](lazy-|Lazy)?([^'"]*?)["'][\s,]*[^)]*\)/g
@@ -17,7 +17,7 @@ const directivesRegExp = /(?<=[ (])_?resolveDirective\(\s*["']([^'"]*?)["'][\s,]
 export const transform = createUnplugin((options: TransformOptions) => {
   const { components, directives } = queryImports()
 
-  const { prefix, iconPrefix, sourceMap } = options
+  const { prefix, iconPrefix, sourcemap } = options
   const pluginsRE = new RegExp(`\\b(${options.plugins.map(plugin => `${prefix}${plugin}`).join('|')})\\b`, 'g')
 
   function removePrefix(name: string) {
@@ -116,7 +116,7 @@ export const transform = createUnplugin((options: TransformOptions) => {
       if (source.hasChanged()) {
         return {
           code: source.toString(),
-          map: sourceMap ? source.generateMap({ source: id, includeContent: true }) : undefined
+          map: sourcemap ? source.generateMap({ source: id, includeContent: true }) : undefined
         }
       }
     }
