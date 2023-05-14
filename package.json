@@ -57,7 +57,7 @@
   "dependencies": {
     "@nuxt/kit": "^3.4.3",
     "@rollup/pluginutils": "^5.0.2",
-    "@vexip-ui/utils": "^1.11.1",
+    "@vexip-ui/utils": "^1.12.0",
     "compare-versions": "6.0.0-rc.1",
     "local-pkg": "^0.4.2",
     "magic-string": "^0.30.0",
@@ -89,7 +89,7 @@
     "semver": "^7.5.0",
     "tsx": "^3.12.7",
     "typescript": "4.9.5",
-    "vexip-ui": "^2.1.18",
+    "vexip-ui": "^2.1.20",
     "vitest": "^0.30.1"
   },
   "peerDependencies": {

@@ -32,17 +32,8 @@ export default defineNuxtModule<ModuleOptions>({
     }
   },
   defaults: {
-    include: [
-      /\.vue$/,
-      /\.vue\?vue/,
-      /\.vue\?v=/,
-      /\.((c|m)?j|t)sx?$/
-    ],
-    exclude: [
-      /[\\/]node_modules[\\/]/,
-      /[\\/]\.git[\\/]/,
-      /[\\/]\.nuxt[\\/]/
-    ],
+    include: [/\.vue$/, /\.vue\?vue/, /\.vue\?v=/, /\.((c|m)?j|t)sx?$/],
+    exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
     importStyle: true,
     importDarkTheme: false,
     prefix: 'V',
@@ -73,7 +64,9 @@ export default defineNuxtModule<ModuleOptions>({
         for (const icon of imports.icons) {
           addComponent({
             export: icon,
-            name: `${iconPrefix}${firstNumberRE.test(icon) ? icon : `I${icon}`}`,
+            name: `${iconPrefix}${
+              firstNumberRE.test(icon) ? icon : `I${icon}`
+            }`,
             filePath: '@vexip-ui/icons'
           })
         }
@@ -86,14 +79,16 @@ export default defineNuxtModule<ModuleOptions>({
       addPlugin(resolve('./runtime/plugin'))
       addImportsSources({
         from: 'vexip-ui',
-        imports: libPlugins.map(plugin => [plugin, `${prefix}${plugin}`])
+        imports: libPlugins.map((plugin) => [plugin, `${prefix}${plugin}`])
       })
 
       if (options.resolveIcon) {
         addImportsSources({
           from: '@vexip-ui/icons',
-          imports: Array.from(imports.icons)
-            .map(icon => [icon, `${iconPrefix}${firstNumberRE.test(icon) ? icon : `I${icon}`}`])
+          imports: Array.from(imports.icons).map((icon) => [
+            icon,
+            `${iconPrefix}${firstNumberRE.test(icon) ? icon : `I${icon}`}`
+          ])
         })
       }
     }
@@ -104,21 +99,30 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.hook('vite:extendConfig', (config, { isClient }) => {
       config.plugins = config.plugins || []
-      config.plugins.push(transform.vite({
-        ...options,
-        plugins: libPlugins,
-        sourcemap: sourcemap && nuxt.options.sourcemap[isClient ? 'client' : 'server']
-      }))
+      config.plugins.push(
+        transform.vite({
+          ...options,
+          plugins: libPlugins,
+          sourcemap:
+            sourcemap && nuxt.options.sourcemap[isClient ? 'client' : 'server']
+        })
+      )
     })
 
     nuxt.hook('webpack:config', (configs) => {
       for (const config of configs) {
         config.plugins = config.plugins || []
-        config.plugins.push(transform.vite({
-          ...options,
-          plugins: libPlugins,
-          sourcemap: sourcemap && nuxt.options.sourcemap[config.name === 'client' ? 'client' : 'server']
-        }))
+        config.plugins.push(
+          transform.vite({
+            ...options,
+            plugins: libPlugins,
+            sourcemap:
+              sourcemap &&
+              nuxt.options.sourcemap[
+                config.name === 'client' ? 'client' : 'server'
+              ]
+          })
+        )
       }
     })
   }

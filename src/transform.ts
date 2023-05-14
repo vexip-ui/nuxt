@@ -11,14 +11,21 @@ export interface TransformOptions extends ModuleOptions {
   sourcemap: boolean
 }
 
-const componentsRegExp = /(?<=[ (])_?resolveComponent\(\s*["'](lazy-|Lazy)?([^'"]*?)["'][\s,]*[^)]*\)/g
-const directivesRegExp = /(?<=[ (])_?resolveDirective\(\s*["']([^'"]*?)["'][\s,]*[^)]*\)/g
+const componentsRegExp =
+  /(?<=[ (])_?resolveComponent\(\s*["'](lazy-|Lazy)?([^'"]*?)["'][\s,]*[^)]*\)/g
+const directivesRegExp =
+  /(?<=[ (])_?resolveDirective\(\s*["']([^'"]*?)["'][\s,]*[^)]*\)/g
 
 export const transform = createUnplugin((options: TransformOptions) => {
   const { components, directives } = queryImports()
 
   const { prefix, iconPrefix, sourcemap } = options
-  const pluginsRE = new RegExp(`\\b(${options.plugins.map(plugin => `${prefix}${plugin}`).join('|')})\\b`, 'g')
+  const pluginsRE = new RegExp(
+    `\\b(${options.plugins
+      .map((plugin) => `${prefix}${plugin}`)
+      .join('|')})\\b`,
+    'g'
+  )
 
   function removePrefix(name: string) {
     if (prefix || iconPrefix) {
@@ -99,7 +106,8 @@ export const transform = createUnplugin((options: TransformOptions) => {
             imports.add(`import { ${name} as ${alias} } from 'vexip-ui'`)
 
             for (const component of relatedComponents) {
-              !matched.has(component) && addImports(getSideEffects(component, options))
+              !matched.has(component) &&
+                addImports(getSideEffects(component, options))
             }
 
             return alias
@@ -116,7 +124,9 @@ export const transform = createUnplugin((options: TransformOptions) => {
       if (source.hasChanged()) {
         return {
           code: source.toString(),
-          map: sourcemap ? source.generateMap({ source: id, includeContent: true }) : undefined
+          map: sourcemap
+            ? source.generateMap({ source: id, includeContent: true })
+            : undefined
         }
       }
     }

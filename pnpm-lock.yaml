@@ -13,8 +13,8 @@ dependencies:
     specifier: ^5.0.2
     version: 5.0.2(rollup@3.21.6)
   '@vexip-ui/utils':
-    specifier: ^1.11.1
-    version: 1.11.1
+    specifier: ^1.12.0
+    version: 1.12.0
   compare-versions:
     specifier: 6.0.0-rc.1
     version: 6.0.0-rc.1
@@ -105,8 +105,8 @@ devDependencies:
     specifier: 4.9.5
     version: 4.9.5
   vexip-ui:
-    specifier: ^2.1.18
-    version: 2.1.18(vue@3.2.47)
+    specifier: ^2.1.20
+    version: 2.1.20(vue@3.2.47)
   vitest:
     specifier: ^0.30.1
     version: 0.30.1
@@ -1597,7 +1597,7 @@ packages:
     dependencies:
       '@juggle/resize-observer': 3.4.0
       '@popperjs/core': 2.11.7
-      '@vexip-ui/utils': 1.11.1
+      '@vexip-ui/utils': 1.12.0
       vue: 3.2.47
     dev: true
 
@@ -1609,9 +1609,8 @@ packages:
       vue: 3.2.47
     dev: true
 
-  /@vexip-ui/utils@1.11.1:
-    resolution: {integrity: sha512-kY8FGRrs1ClSwo+HDxwTRZilYxZw8Qe9fEY4nxVVZFCN5jV6iF2zU9I5H7ZJK81ehTpDVVMEHTI676RaiKfFDg==}
-    engines: {node: '>=14'}
+  /@vexip-ui/utils@1.12.0:
+    resolution: {integrity: sha512-fern2sLFhC5iZN+homhmASd4IlRkCTb/xQx44ykdM8KsHor4wd4b6TM75zU/6ZWFcJRz8MVP49V6wW4uYnVYFA==}
 
   /@vitejs/plugin-vue-jsx@3.0.1(vite@4.3.5)(vue@3.2.47):
     resolution: {integrity: sha512-+Jb7ggL48FSPS1uhPnJbJwWa9Sr90vQ+d0InW+AhBM22n+cfuYqJZDckBc+W3QSHe1WDvewMZfa4wZOtk5pRgw==}
@@ -7398,8 +7397,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vexip-ui@2.1.18(vue@3.2.47):
-    resolution: {integrity: sha512-0XX3pFL01MFBF6Qa3+2/1KJSQjJq5PTIOp4wOSRFkP1OjoX2OFTVt0wq0gyO5FB3VrbTsZqZZMugifuV0rvMYA==}
+  /vexip-ui@2.1.20(vue@3.2.47):
+    resolution: {integrity: sha512-yFObvlnxUU0ImJ2p3Nwhd3hnYcmd71THuTB1jkMLrty4JoR7oE4CQkfD3+FTuiZbfswKIsOkFnfkgdqPlVN0ig==}
     engines: {node: '>=18'}
     requiresBuild: true
     peerDependencies:
@@ -7407,7 +7406,7 @@ packages:
     dependencies:
       '@vexip-ui/hooks': 1.10.0(vue@3.2.47)
       '@vexip-ui/icons': 1.2.0(vue@3.2.47)
-      '@vexip-ui/utils': 1.11.1
+      '@vexip-ui/utils': 1.12.0
       vue: 3.2.47
     dev: true
 

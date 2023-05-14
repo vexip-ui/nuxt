@@ -1,4 +1,3 @@
-
 import { readFileSync } from 'node:fs'
 import { getPackageInfoSync, resolveModule } from 'local-pkg'
 import { compare } from 'compare-versions'
@@ -9,7 +8,9 @@ import * as Icons from '@vexip-ui/icons'
 import type { ModuleOptions } from './types'
 
 function throwLoadError() {
-  throw new Error('[vexip-ui:nuxt] failed to load vexip-ui, have you installed it?')
+  throw new Error(
+    '[vexip-ui:nuxt] failed to load vexip-ui, have you installed it?'
+  )
 }
 
 const icons = new Set(Object.keys(Icons))
@@ -28,8 +29,9 @@ export function queryVersion() {
   try {
     version =
       getPackageInfoSync('vexip-ui')?.version ??
-      getPackageInfoSync('vexip-ui', { paths: [resolveModule('vexip-ui') || process.cwd()] })
-        ?.version
+      getPackageInfoSync('vexip-ui', {
+        paths: [resolveModule('vexip-ui') || process.cwd()]
+      })?.version
 
     metaPath = compare(version!, '2.1.18', '<')
       ? 'vexip-ui/meta-data.json'
@@ -60,7 +62,8 @@ export function queryImports() {
 
   try {
     const root = resolveModule('vexip-ui') || process.cwd()
-    const path = resolveModule(metaPath!) || resolveModule(metaPath!, { paths: [root] })
+    const path =
+      resolveModule(metaPath!) || resolveModule(metaPath!, { paths: [root] })
     const metaData = JSON.parse(readFileSync(path!, 'utf-8'))
 
     components = new Set(metaData.components)
