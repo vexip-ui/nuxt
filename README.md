@@ -28,17 +28,17 @@
 
 ## Quick Setup
 
-Add `vexip-ui`, `@vexip-ui/icons` and `@vexip-ui/nuxt` dependency to your project:
+Add `@vexip-ui/nuxt` dependency to your project:
 
 ```sh
 # Using pnpm
-pnpm i -D vexip-ui @vexip-ui/icons @vexip-ui/nuxt
+pnpm i -D @vexip-ui/nuxt
 
 # Using yarn
-yarn add -D vexip-ui @vexip-ui/icons @vexip-ui/nuxt
+yarn add -D @vexip-ui/nuxt
 ```
 
-Add `@vexip-ui/nuxt` to the `modules` section of `nuxt.config.ts`
+Add `@vexip-ui/nuxt` to the `modules` section of `nuxt.config.ts`:
 
 ```js
 export default defineNuxtConfig({
