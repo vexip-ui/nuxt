@@ -128,25 +128,25 @@ export interface ModuleOptions {
    *
    * @default 'V'
    */
-  prefix?: string,
+  prefix: string,
   /**
    * Auto import for directives
    *
    * @default true
    */
-  directives?: boolean,
+  directives: boolean,
   /**
    * Resolve icon components from '@vexip-ui/icons'
    *
    * @default true
    */
-  resolveIcon?: boolean,
+  resolveIcon: boolean,
   /**
    * Prefix for name of icon components, same to `prefix` if undefined or null
    *
    * @default ''
    */
-  iconPrefix?: string
+  iconPrefix: string
 }
 ```
 
