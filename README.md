@@ -38,6 +38,16 @@ pnpm i -D @vexip-ui/nuxt
 yarn add -D @vexip-ui/nuxt
 ```
 
+If you want to control the version of Vexip UI, you need to add `vexip-ui` dependency to your project too:
+
+```sh
+# Using pnpm
+pnpm i -D vexip-ui
+
+# Using yarn
+yarn add -D vexip-ui
+```
+
 Add `@vexip-ui/nuxt` to the `modules` section of `nuxt.config.ts`:
 
 ```js
