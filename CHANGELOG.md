@@ -1,3 +1,7 @@
+# [1.1.0](https://github.com/vexip-ui/nuxt/compare/v1.0.0...v1.1.0) (2023-09-15)
+
+
+
 # [1.0.0](https://github.com/vexip-ui/nuxt/compare/v1.0.0-dev.3...v1.0.0) (2023-05-15)
 
 
