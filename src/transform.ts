@@ -2,7 +2,7 @@ import { createUnplugin } from 'unplugin'
 import MagicString from 'magic-string'
 import { createFilter } from '@rollup/pluginutils'
 import { toCapitalCase } from '@vexip-ui/utils'
-import { queryImports, getSideEffects } from './resolver'
+import { getSideEffects, queryImports } from './resolver'
 
 import type { ModuleOptions } from './types'
 

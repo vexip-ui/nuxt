@@ -1,11 +1,11 @@
 import {
-  defineNuxtModule,
-  createResolver,
-  addPlugin,
   addComponent,
-  addImportsSources
+  addImportsSources,
+  addPlugin,
+  createResolver,
+  defineNuxtModule
 } from '@nuxt/kit'
-import { queryVersion, queryImports, queryBaseStyles } from './resolver'
+import { queryBaseStyles, queryImports, queryVersion } from './resolver'
 import { transform } from './transform'
 import { compare } from 'compare-versions'
 import { isNull, toCapitalCase } from '@vexip-ui/utils'
@@ -95,7 +95,13 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.build.transpile.push('vexip-ui')
 
-    const sourcemap = compare(version, '2.1.19', '>=')
+    const hasSourcemap = compare(version, '2.1.19', '>=')
+
+    const getSourcemap = (isClient: boolean) => {
+      const sourcemap = nuxt.options.sourcemap[isClient ? 'client' : 'server']
+
+      return hasSourcemap && (sourcemap === 'hidden' ? false : sourcemap)
+    }
 
     nuxt.hook('vite:extendConfig', (config, { isClient }) => {
       config.plugins = config.plugins || []
@@ -103,8 +109,7 @@ export default defineNuxtModule<ModuleOptions>({
         transform.vite({
           ...options,
           plugins: libPlugins,
-          sourcemap:
-            sourcemap && nuxt.options.sourcemap[isClient ? 'client' : 'server']
+          sourcemap: getSourcemap(isClient)
         })
       )
     })
@@ -116,11 +121,7 @@ export default defineNuxtModule<ModuleOptions>({
           transform.vite({
             ...options,
             plugins: libPlugins,
-            sourcemap:
-              sourcemap &&
-              nuxt.options.sourcemap[
-                config.name === 'client' ? 'client' : 'server'
-              ]
+            sourcemap: getSourcemap(config.name === 'client')
           })
         )
       }

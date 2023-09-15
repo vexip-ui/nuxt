@@ -1,10 +1,11 @@
-import { resolve, join } from 'node:path'
+import { join, resolve } from 'node:path'
 import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
+
 import minimist from 'minimist'
 import semver from 'semver'
 import prompts from 'prompts'
-import { logger, run, dryRun } from './utils'
+import { dryRun, logger, run } from './utils'
 
 const args = minimist<{
   d?: boolean,

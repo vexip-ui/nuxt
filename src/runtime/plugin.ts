@@ -1,5 +1,6 @@
-import { Confirm, Contextmenu, Loading, Message, Notice, Toast } from 'vexip-ui'
 import { defineNuxtPlugin } from '#app'
+
+import { Confirm, Contextmenu, Loading, Message, Notice, Toast } from 'vexip-ui'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp

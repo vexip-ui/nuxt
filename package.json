@@ -55,42 +55,44 @@
     "url": "https://github.com/vexip-ui/nuxt/issues"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.4.3",
-    "@rollup/pluginutils": "^5.0.2",
-    "@vexip-ui/utils": "^1.12.0",
-    "compare-versions": "6.0.0-rc.1",
-    "local-pkg": "^0.4.2",
-    "magic-string": "^0.30.0",
-    "unplugin": "^1.3.1"
+    "@nuxt/kit": "^3.7.3",
+    "@rollup/pluginutils": "^5.0.4",
+    "@vexip-ui/utils": "^2.0.1",
+    "compare-versions": "6.1.0",
+    "local-pkg": "^0.4.3",
+    "magic-string": "^0.30.3",
+    "unplugin": "^1.4.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.3",
-    "@nuxt/module-builder": "^0.3.0",
-    "@nuxt/schema": "^3.4.3",
-    "@nuxt/test-utils": "^3.4.3",
+    "@commitlint/cli": "^17.7.1",
+    "@nuxt/module-builder": "^0.5.1",
+    "@nuxt/schema": "^3.7.3",
+    "@nuxt/test-utils": "^3.7.3",
     "@types/minimist": "^1.2.2",
-    "@types/node": "^18",
+    "@types/node": "^20.5.7",
     "@types/prompts": "^2.4.4",
-    "@types/semver": "^7.5.0",
-    "@vexip-ui/commitlint-config": "^0.1.0",
-    "@vexip-ui/eslint-config": "^0.5.2",
+    "@types/semver": "^7.5.2",
+    "@vexip-ui/commitlint-config": "^0.2.0",
+    "@vexip-ui/eslint-config": "^0.8.1",
     "@vexip-ui/icons": "^1.2.0",
-    "conventional-changelog-cli": "^2.2.2",
-    "eslint": "^8.39.0",
-    "execa": "^7.1.1",
+    "conventional-changelog-angular": "^7.0.0",
+    "conventional-changelog-cli": "^4.1.0",
+    "eslint": "^8.49.0",
+    "execa": "^8.0.1",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "kolorist": "^1.8.0",
-    "lint-staged": "^13.2.2",
+    "lint-staged": "^14.0.1",
     "minimist": "^1.2.8",
-    "nuxt": "^3.4.3",
+    "nuxt": "^3.7.3",
     "pinst": "^3.0.0",
+    "prettier": "^2.8.8",
     "prompts": "^2.4.2",
-    "semver": "^7.5.0",
-    "tsx": "^3.12.7",
-    "typescript": "4.9.5",
-    "vexip-ui": "^2.1.20",
-    "vitest": "^0.30.1"
+    "semver": "^7.5.4",
+    "tsx": "^3.12.10",
+    "typescript": "5.2.2",
+    "vexip-ui": "^2.2.3",
+    "vitest": "0.33.0"
   },
   "peerDependencies": {
     "@vexip-ui/icons": ">=1.0.0",
@@ -98,7 +100,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "conventional-changelog-angular@5.0.13": "patches/conventional-changelog-angular@5.0.13.patch"
+      "conventional-changelog-angular@7.0.0": "patches/conventional-changelog-angular@7.0.0.patch"
     }
   }
 }
