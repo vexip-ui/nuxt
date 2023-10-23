@@ -57,6 +57,11 @@ export default defineNuxtConfig({
   ],
   vexipUI: {
     // Your module options
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['@vexip-ui/icons'] // optimize icons lib dependency
+    }
   }
 })
 ```
