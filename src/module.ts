@@ -3,7 +3,8 @@ import {
   addImportsSources,
   addPlugin,
   createResolver,
-  defineNuxtModule
+  defineNuxtModule,
+  extendViteConfig
 } from '@nuxt/kit'
 import { queryBaseStyles, queryImports, queryVersion } from './resolver'
 import { transform } from './transform'
@@ -102,6 +103,12 @@ export default defineNuxtModule<ModuleOptions>({
 
       return hasSourcemap && (sourcemap === 'hidden' ? false : sourcemap)
     }
+
+    extendViteConfig(config => {
+      config.optimizeDeps = config.optimizeDeps || {}
+      config.optimizeDeps.include = config.optimizeDeps.include || []
+      config.optimizeDeps.include.push('vexip-ui', '@vexip-ui/icons')
+    }, { build: false })
 
     nuxt.hook('vite:extendConfig', (config, { isClient }) => {
       config.plugins = config.plugins || []
