@@ -1,11 +1,24 @@
-// import { fileURLToPath } from 'node:url'
 import vexipUI from '../src/module'
 
+const vxpStylePresetRE = /vexip-ui\/style(?:\/dark)?\/preset/
+
 export default defineNuxtConfig({
-  // alias: {
-  //   'vexip-ui': fileURLToPath(new URL('../../..', import.meta.url)),
-  //   '@vexip-ui/icons': fileURLToPath(new URL('../../icons/dist/index', import.meta.url))
-  // },
   modules: [vexipUI],
-  vexipUI: {}
+  vexipUI: {
+    importStyle: 'sass',
+    importDarkTheme: true
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: (code: string, path: string) => {
+            return vxpStylePresetRE.test(path)
+              ? code.replace('@use \'./design/variables.scss\' as *;', '@use \'@/style/variables.scss\' as *;')
+              : code
+          }
+        }
+      }
+    }
+  }
 })

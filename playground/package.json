@@ -1,4 +1,7 @@
 {
   "private": true,
-  "name": "vexip-nuxt-playground"
+  "name": "vexip-nuxt-playground",
+  "devDependencies": {
+    "sass": "^1.69.3"
+  }
 }

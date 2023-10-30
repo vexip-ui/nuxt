@@ -113,7 +113,7 @@ export default defineNuxtModule<ModuleOptions>({
       config.optimizeDeps = config.optimizeDeps || {}
       config.optimizeDeps.include = config.optimizeDeps.include || []
       config.optimizeDeps.include.push('vexip-ui', '@vexip-ui/icons')
-    }, { build: false })
+    })
 
     nuxt.hook('vite:extendConfig', (config, { isClient }) => {
       config.plugins = config.plugins || []

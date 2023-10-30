@@ -7,18 +7,25 @@
     @user-action="handleUserAction"
   >
     <template #main>
-      <div style="width: 100%; height: 1200px; padding: 20px;">
-        <VButton type="success" :icon="IUser" @click="handleClick">
-          Button
-        </VButton>
-        <v-auto-complete></v-auto-complete>
-        <VIcon>
-          <ISackDollar></ISackDollar>
-        </VIcon>
-        <div
-          v-loading="true"
-          style="width: 200px; height: 100px; background-color: var(--vxp-bg-color-reverse);"
-        ></div>
+      <div style="width: 100%; height: 1200px; padding: 20px">
+        <VSpace vertical>
+          <div>
+            <VButton type="primary" :icon="IUser">
+              Button
+            </VButton>
+            <VButton type="success" :icon="IUser" @click="handleClick">
+              Button
+            </VButton>
+          </div>
+          <v-auto-complete style="max-width: 400px"></v-auto-complete>
+          <VIcon>
+            <ISackDollar></ISackDollar>
+          </VIcon>
+          <div
+            v-loading="true"
+            style="width: 200px; height: 100px; background-color: var(--vxp-bg-color-reverse)"
+          ></div>
+        </VSpace>
       </div>
     </template>
   </VLayout>

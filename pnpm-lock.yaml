@@ -9,117 +9,125 @@ patchedDependencies:
     hash: mnuz4pbg7c37j4ofaayqrj5u6y
     path: patches/conventional-changelog-angular@7.0.0.patch
 
-dependencies:
-  '@nuxt/kit':
-    specifier: ^3.8.0
-    version: 3.8.0(rollup@3.29.1)
-  '@rollup/pluginutils':
-    specifier: ^5.0.5
-    version: 5.0.5(rollup@3.29.1)
-  '@vexip-ui/utils':
-    specifier: ^2.3.0
-    version: 2.3.0
-  compare-versions:
-    specifier: 6.1.0
-    version: 6.1.0
-  local-pkg:
-    specifier: ^0.5.0
-    version: 0.5.0
-  magic-string:
-    specifier: ^0.30.5
-    version: 0.30.5
-  unplugin:
-    specifier: ^1.5.0
-    version: 1.5.0
+importers:
 
-devDependencies:
-  '@commitlint/cli':
-    specifier: ^17.7.2
-    version: 17.7.2
-  '@nuxt/module-builder':
-    specifier: ^0.5.2
-    version: 0.5.2(@nuxt/kit@3.8.0)(nuxi@3.9.1)(typescript@5.2.2)
-  '@nuxt/schema':
-    specifier: ^3.8.0
-    version: 3.8.0(rollup@3.29.1)
-  '@nuxt/test-utils':
-    specifier: ^3.8.0
-    version: 3.8.0(rollup@3.29.1)(vitest@0.33.0)(vue@3.3.4)
-  '@types/minimist':
-    specifier: ^1.2.4
-    version: 1.2.4
-  '@types/node':
-    specifier: ^20.8.9
-    version: 20.8.9
-  '@types/prompts':
-    specifier: ^2.4.7
-    version: 2.4.7
-  '@types/semver':
-    specifier: ^7.5.4
-    version: 7.5.4
-  '@vexip-ui/commitlint-config':
-    specifier: ^0.3.0
-    version: 0.3.0(@commitlint/cli@17.7.2)
-  '@vexip-ui/eslint-config':
-    specifier: ^0.9.0
-    version: 0.9.0(eslint@8.52.0)(typescript@5.2.2)
-  '@vexip-ui/icons':
-    specifier: ^1.2.0
-    version: 1.2.0(vue@3.3.4)
-  conventional-changelog-angular:
-    specifier: ^7.0.0
-    version: 7.0.0(patch_hash=mnuz4pbg7c37j4ofaayqrj5u6y)
-  conventional-changelog-cli:
-    specifier: ^4.1.0
-    version: 4.1.0
-  eslint:
-    specifier: ^8.52.0
-    version: 8.52.0
-  execa:
-    specifier: ^8.0.1
-    version: 8.0.1
-  husky:
-    specifier: ^8.0.3
-    version: 8.0.3
-  is-ci:
-    specifier: ^3.0.1
-    version: 3.0.1
-  kolorist:
-    specifier: ^1.8.0
-    version: 1.8.0
-  lint-staged:
-    specifier: ^15.0.2
-    version: 15.0.2
-  minimist:
-    specifier: ^1.2.8
-    version: 1.2.8
-  nuxt:
-    specifier: ^3.8.0
-    version: 3.8.0(@types/node@20.8.9)(eslint@8.52.0)(rollup@3.29.1)(typescript@5.2.2)(vite@4.5.0)
-  pinst:
-    specifier: ^3.0.0
-    version: 3.0.0
-  prettier:
-    specifier: ^3.0.3
-    version: 3.0.3
-  prompts:
-    specifier: ^2.4.2
-    version: 2.4.2
-  semver:
-    specifier: ^7.5.4
-    version: 7.5.4
-  tsx:
-    specifier: ^3.14.0
-    version: 3.14.0
-  typescript:
-    specifier: 5.2.2
-    version: 5.2.2
-  vexip-ui:
-    specifier: ^2.2.8
-    version: 2.2.8(vue@3.3.4)
-  vitest:
-    specifier: 0.33.0
-    version: 0.33.0
+  .:
+    dependencies:
+      '@nuxt/kit':
+        specifier: ^3.8.0
+        version: 3.8.0(rollup@3.29.1)
+      '@rollup/pluginutils':
+        specifier: ^5.0.5
+        version: 5.0.5(rollup@3.29.1)
+      '@vexip-ui/utils':
+        specifier: ^2.3.0
+        version: 2.3.0
+      compare-versions:
+        specifier: 6.1.0
+        version: 6.1.0
+      local-pkg:
+        specifier: ^0.5.0
+        version: 0.5.0
+      magic-string:
+        specifier: ^0.30.5
+        version: 0.30.5
+      unplugin:
+        specifier: ^1.5.0
+        version: 1.5.0
+    devDependencies:
+      '@commitlint/cli':
+        specifier: ^17.7.2
+        version: 17.7.2
+      '@nuxt/module-builder':
+        specifier: ^0.5.2
+        version: 0.5.2(@nuxt/kit@3.8.0)(nuxi@3.9.1)(typescript@5.2.2)
+      '@nuxt/schema':
+        specifier: ^3.8.0
+        version: 3.8.0(rollup@3.29.1)
+      '@nuxt/test-utils':
+        specifier: ^3.8.0
+        version: 3.8.0(rollup@3.29.1)(vitest@0.33.0)(vue@3.3.4)
+      '@types/minimist':
+        specifier: ^1.2.4
+        version: 1.2.4
+      '@types/node':
+        specifier: ^20.8.9
+        version: 20.8.9
+      '@types/prompts':
+        specifier: ^2.4.7
+        version: 2.4.7
+      '@types/semver':
+        specifier: ^7.5.4
+        version: 7.5.4
+      '@vexip-ui/commitlint-config':
+        specifier: ^0.3.0
+        version: 0.3.0(@commitlint/cli@17.7.2)
+      '@vexip-ui/eslint-config':
+        specifier: ^0.9.0
+        version: 0.9.0(eslint@8.52.0)(typescript@5.2.2)
+      '@vexip-ui/icons':
+        specifier: ^1.2.0
+        version: 1.2.0(vue@3.3.4)
+      conventional-changelog-angular:
+        specifier: ^7.0.0
+        version: 7.0.0(patch_hash=mnuz4pbg7c37j4ofaayqrj5u6y)
+      conventional-changelog-cli:
+        specifier: ^4.1.0
+        version: 4.1.0
+      eslint:
+        specifier: ^8.52.0
+        version: 8.52.0
+      execa:
+        specifier: ^8.0.1
+        version: 8.0.1
+      husky:
+        specifier: ^8.0.3
+        version: 8.0.3
+      is-ci:
+        specifier: ^3.0.1
+        version: 3.0.1
+      kolorist:
+        specifier: ^1.8.0
+        version: 1.8.0
+      lint-staged:
+        specifier: ^15.0.2
+        version: 15.0.2
+      minimist:
+        specifier: ^1.2.8
+        version: 1.2.8
+      nuxt:
+        specifier: ^3.8.0
+        version: 3.8.0(@types/node@20.8.9)(eslint@8.52.0)(rollup@3.29.1)(typescript@5.2.2)(vite@4.5.0)
+      pinst:
+        specifier: ^3.0.0
+        version: 3.0.0
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
+      prompts:
+        specifier: ^2.4.2
+        version: 2.4.2
+      semver:
+        specifier: ^7.5.4
+        version: 7.5.4
+      tsx:
+        specifier: ^3.14.0
+        version: 3.14.0
+      typescript:
+        specifier: 5.2.2
+        version: 5.2.2
+      vexip-ui:
+        specifier: ^2.2.8
+        version: 2.2.8(vue@3.3.4)
+      vitest:
+        specifier: 0.33.0
+        version: 0.33.0
+
+  playground:
+    devDependencies:
+      sass:
+        specifier: ^1.69.3
+        version: 1.69.3
 
 packages:
 
@@ -5781,6 +5789,10 @@ packages:
     engines: {node: '>=10.18.0'}
     dev: true
 
+  /immutable@4.3.4:
+    resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
+    dev: true
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -8502,6 +8514,16 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /sass@1.69.3:
+    resolution: {integrity: sha512-X99+a2iGdXkdWn1akFPs0ZmelUzyAQfvqYc2P/MPTrJRuIRoTffGzT9W9nFqG00S+c8hXzVmgxhUuHFdrwxkhQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.4
+      source-map-js: 1.0.2
+    dev: true
 
   /scule@1.0.0:
     resolution: {integrity: sha512-4AsO/FrViE/iDNEPaAQlb77tf0csuq27EsVpy6ett584EcRTp6pTDLoGWVxCD77y5iU5FauOvhsI4o1APwPoSQ==}
