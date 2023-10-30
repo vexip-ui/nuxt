@@ -92,29 +92,24 @@ export function queryBaseStyles(options: ModuleOptions) {
   if (!importStyle) return []
   if (!version) queryVersion()
 
-  if (lowerVersion) {
-    if (importStyle === 'sass') {
-      return [
-        'vexip-ui/style/preset.scss',
-        ...(importDarkTheme ? ['vexip-ui/style/dark/preset.scss'] : [])
-      ]
-    } else {
-      return [
-        'vexip-ui/css/preset.css',
-        ...(importDarkTheme ? ['vexip-ui/themes/dark/index.css'] : [])
-      ]
-    }
-  }
-
+  // Nuxt will avoid repeatedly import a style file, and only can
+  // process style (`.css`, `.scss`) files, So here we should import
+  // the scss files or css files
   if (importStyle === 'sass') {
-    return importDarkTheme ? ['vexip-ui/es/style/dark'] : []
+    return [
+      'vexip-ui/style/preset.scss',
+      ...(importDarkTheme ? ['vexip-ui/style/dark/preset.scss'] : [])
+    ]
   } else {
-    return importDarkTheme ? ['vexip-ui/es/css/dark'] : []
+    return [
+      'vexip-ui/css/preset.css',
+      ...(importDarkTheme ? ['vexip-ui/themes/dark/index.css'] : [])
+    ]
   }
 }
 
 export function getSideEffects(name: string, options: ModuleOptions) {
-  const { importStyle, fullStyle } = options
+  const { importStyle, importDarkTheme, fullStyle } = options
 
   if (!importStyle) return []
 
