@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/vexip-ui/nuxt/compare/v1.2.0...v1.2.1) (2023-10-30)
+
+
+### 🐞 Bug Fixes
+
+* ensure extend optimizeDeps work ([d54c3cc](https://github.com/vexip-ui/nuxt/commit/d54c3ccc4f75aa3515f7c66c08cbfa96c198d268))
+
+
+
 # [1.2.0](https://github.com/vexip-ui/nuxt/compare/v1.1.0...v1.2.0) (2023-10-30)
 
 
