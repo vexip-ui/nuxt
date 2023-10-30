@@ -37,6 +37,14 @@ export interface ModuleOptions {
    */
   importDarkTheme: boolean,
   /**
+   * Whether import all styles at once
+   *
+   * It will be true if don't specify and run in dev mode
+   *
+   * @default undefined
+   */
+  fullStyle?: boolean,
+  /**
    * Prefix for name of components
    *
    * @default 'V'

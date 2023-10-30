@@ -37,12 +37,17 @@ export default defineNuxtModule<ModuleOptions>({
     exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
     importStyle: true,
     importDarkTheme: false,
+    fullStyle: undefined,
     prefix: 'V',
     directives: true,
     resolveIcon: true,
     iconPrefix: ''
   },
   setup(options, nuxt) {
+    if (isNull(options.fullStyle) && nuxt.options.dev) {
+      options.fullStyle = true
+    }
+
     const version = queryVersion()
     const imports = queryImports()
     const prefix = toCapitalCase(options.prefix || '')

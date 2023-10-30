@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 
 import { getPackageInfoSync, resolveModule } from 'local-pkg'
 import { compare } from 'compare-versions'
-import { toKebabCase } from '@vexip-ui/utils'
+import { toKebabCase, warnOnce } from '@vexip-ui/utils'
 
 import * as Icons from '@vexip-ui/icons'
 
@@ -19,6 +19,7 @@ const icons = new Set(Object.keys(Icons))
 let version: string | undefined
 let metaPath: string | undefined
 let lowerVersion = false
+let supportFullStyle = false
 
 let components: Set<string> | undefined
 let styleAlias: Record<string, string> | undefined
@@ -44,6 +45,8 @@ export function queryVersion() {
           'upgrade it to support import style via esm.'
       )
     }
+
+    supportFullStyle = compare(version!, '2.2.8', '>=')
   } catch (e) {
     console.error(e)
     throwLoadError()
@@ -111,9 +114,20 @@ export function queryBaseStyles(options: ModuleOptions) {
 }
 
 export function getSideEffects(name: string, options: ModuleOptions) {
-  const { importStyle } = options
+  const { importStyle, fullStyle } = options
 
   if (!importStyle) return []
+
+  if (fullStyle) {
+    if (supportFullStyle) {
+      return importStyle === 'sass' ? ['vexip-ui/es/style/index'] : ['vexip-ui/es/css/index']
+    }
+
+    warnOnce(
+      "[vexip-ui:plugins] 'fullStyle' requires vexip-ui@2.2.8 or newer, you'd better " +
+        'upgrade vexip-ui to support the feature.'
+    )
+  }
 
   if (styleAlias && styleAlias[name]) {
     name = styleAlias[name]
@@ -122,16 +136,8 @@ export function getSideEffects(name: string, options: ModuleOptions) {
   name = toKebabCase(name)
 
   if (lowerVersion) {
-    if (importStyle === 'sass') {
-      return [`vexip-ui/style/${name}.scss`]
-    } else {
-      return [`vexip-ui/css/${name}.css`]
-    }
+    return importStyle === 'sass' ? [`vexip-ui/style/${name}.scss`] : [`vexip-ui/css/${name}.css`]
   }
 
-  if (importStyle === 'sass') {
-    return [`vexip-ui/es/style/${name}`]
-  } else {
-    return [`vexip-ui/es/css/${name}`]
-  }
+  return importStyle === 'sass' ? [`vexip-ui/es/style/${name}`] : [`vexip-ui/es/css/${name}`]
 }
