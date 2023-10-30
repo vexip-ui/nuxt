@@ -124,7 +124,7 @@ export function getSideEffects(name: string, options: ModuleOptions) {
     }
 
     warnOnce(
-      "[vexip-ui:plugins] 'fullStyle' requires vexip-ui@2.2.8 or newer, you'd better " +
+      "[vexip-ui:nuxt] 'fullStyle' requires vexip-ui@2.2.8 or newer, you'd better " +
         'upgrade vexip-ui to support the feature.'
     )
   }
