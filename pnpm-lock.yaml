@@ -53,12 +53,6 @@ importers:
       '@types/node':
         specifier: ^20.8.9
         version: 20.8.9
-      '@types/prompts':
-        specifier: ^2.4.7
-        version: 2.4.7
-      '@types/semver':
-        specifier: ^7.5.4
-        version: 7.5.4
       '@vexip-ui/commitlint-config':
         specifier: ^0.3.0
         version: 0.3.0(@commitlint/cli@17.7.2)
@@ -80,18 +74,12 @@ importers:
       eslint:
         specifier: ^8.52.0
         version: 8.52.0
-      execa:
-        specifier: ^8.0.1
-        version: 8.0.1
       husky:
         specifier: ^8.0.3
         version: 8.0.3
       is-ci:
         specifier: ^3.0.1
         version: 3.0.1
-      kolorist:
-        specifier: ^1.8.0
-        version: 1.8.0
       lint-staged:
         specifier: ^15.0.2
         version: 15.0.2
@@ -107,12 +95,6 @@ importers:
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
-      prompts:
-        specifier: ^2.4.2
-        version: 2.4.2
-      semver:
-        specifier: ^7.5.4
-        version: 7.5.4
       tsx:
         specifier: ^3.14.0
         version: 3.14.0
@@ -2532,13 +2514,6 @@ packages:
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
-    dev: true
-
-  /@types/prompts@2.4.7:
-    resolution: {integrity: sha512-5zTamE+QQM4nR6Ab3yHK+ovWuhLJXaa2ZLt3mT1en8U3ubWtjVT1vXDaVFC2+cL89uVn7Y+gIq5B3IcVvBl5xQ==}
-    dependencies:
-      '@types/node': 20.8.9
-      kleur: 3.0.3
     dev: true
 
   /@types/resolve@1.20.2:
