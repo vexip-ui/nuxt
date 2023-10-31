@@ -68,6 +68,9 @@ importers:
       '@vexip-ui/icons':
         specifier: ^1.2.0
         version: 1.2.0(vue@3.3.4)
+      '@vexip-ui/scripts':
+        specifier: ^1.0.0
+        version: 1.0.0
       conventional-changelog-angular:
         specifier: ^7.0.0
         version: 7.0.0(patch_hash=mnuz4pbg7c37j4ofaayqrj5u6y)
@@ -2817,6 +2820,15 @@ packages:
       vue: ^3.2.25
     dependencies:
       vue: 3.3.4
+    dev: true
+
+  /@vexip-ui/scripts@1.0.0:
+    resolution: {integrity: sha512-7emOi0PdpcNME+IPFB557p1LaQakzbmPGCIUAPpgopO/Jf88TFr7aQSg13vYxTXhdY3DgLapAqyzH14WQMHJxg==}
+    dependencies:
+      execa: 8.0.1
+      kolorist: 1.8.0
+      prompts: 2.4.2
+      semver: 7.5.4
     dev: true
 
   /@vexip-ui/utils@2.0.0:
