@@ -1,5 +1,3 @@
-import { resolve } from 'node:path'
-
 import minimist from 'minimist'
 import { logger, release, run } from '@vexip-ui/scripts'
 import { rootDir } from './constant'
@@ -14,7 +12,7 @@ const args = minimist<{
 const isDryRun = args.dry || args.d
 
 release({
-  pkgDir: resolve(rootDir, 'package.json'),
+  pkgDir: rootDir,
   isDryRun,
   preId: args.preid,
   runTest: () => run('pnpm', ['test']),
