@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/vexip-ui/nuxt/compare/v1.2.2...v1.3.0) (2024-01-30)
+
+
+### ✨ Features
+
+* add themeVarsPath option ([7fe63b6](https://github.com/vexip-ui/nuxt/commit/7fe63b6e8b351497417be94a4042c8b494a78366))
+
+
+
 ## [1.2.2](https://github.com/vexip-ui/nuxt/compare/v1.2.1...v1.2.2) (2023-10-30)
 
 
