@@ -1,5 +1,3 @@
-import { resolve } from 'node:path'
-
 import minimist from 'minimist'
 import { logger, publish } from '@vexip-ui/scripts'
 import { rootDir } from './constant'
@@ -15,7 +13,7 @@ const isDryRun = args.dry || args.d
 const releaseTag = args.tag || args.t
 
 publish({
-  pkgDir: resolve(rootDir, 'package.json'),
+  pkgDir: rootDir,
   isDryRun,
   releaseTag
 }).catch(error => {
