@@ -13,7 +13,7 @@ import { isNull, toCapitalCase } from '@vexip-ui/utils'
 
 import type { ModuleOptions } from './types'
 
-const firstNumberRE = /^I[0-9].*/
+const iconFirstNumberRE = /^I[0-9].*/
 
 const libPlugins = [
   'Confirm',
@@ -38,6 +38,7 @@ export default defineNuxtModule<ModuleOptions>({
     importStyle: true,
     importDarkTheme: false,
     fullStyle: undefined,
+    themeVarsPath: {},
     prefix: 'V',
     directives: true,
     resolveIcon: true,
@@ -71,7 +72,7 @@ export default defineNuxtModule<ModuleOptions>({
           addComponent({
             export: icon,
             name: `${iconPrefix}${
-              firstNumberRE.test(icon) ? icon : `I${icon}`
+              iconFirstNumberRE.test(icon) ? icon : `I${icon}`
             }`,
             filePath: '@vexip-ui/icons'
           })
@@ -93,7 +94,7 @@ export default defineNuxtModule<ModuleOptions>({
           from: '@vexip-ui/icons',
           imports: Array.from(imports.icons).map((icon) => [
             icon,
-            `${iconPrefix}${firstNumberRE.test(icon) ? icon : `I${icon}`}`
+            `${iconPrefix}${iconFirstNumberRE.test(icon) ? icon : `I${icon}`}`
           ])
         })
       }
@@ -113,6 +114,42 @@ export default defineNuxtModule<ModuleOptions>({
       config.optimizeDeps = config.optimizeDeps || {}
       config.optimizeDeps.include = config.optimizeDeps.include || []
       config.optimizeDeps.include.push('vexip-ui', '@vexip-ui/icons')
+
+      const basePath = options.themeVarsPath.base
+      const darkPath = options.themeVarsPath.dark
+
+      if (!basePath && !darkPath) return
+
+      config.css = config.css || {}
+      config.css.preprocessorOptions = config.css.preprocessorOptions || {}
+      config.css.preprocessorOptions.scss = config.css.preprocessorOptions.scss || {}
+
+      const customValue = config.css.preprocessorOptions.scss.additionalData
+      const vxpStylePresetRE = /vexip-ui\/style(?:\/dark)?\/preset/
+
+      let origin: (code: string, path: string) => string
+
+      if (typeof customValue === 'string') {
+        origin = code => customValue + '\n' + code
+      } else if (typeof customValue === 'function') {
+        origin = customValue
+      } else {
+        origin = code => code
+      }
+
+      config.css.preprocessorOptions.scss.additionalData = (code: string, path: string) => {
+        if (vxpStylePresetRE.test(path)) {
+          if (darkPath && path.includes('dark')) {
+            return code.replace('@use \'./variables.scss\' as *;', `@use '${darkPath}' as *;`)
+          }
+
+          if (basePath) {
+            return code.replace('@use \'./design/variables.scss\' as *;', `@use '${basePath}' as *;`)
+          }
+        }
+
+        return origin(code, path)
+      }
     })
 
     nuxt.hook('vite:extendConfig', (config, { isClient }) => {

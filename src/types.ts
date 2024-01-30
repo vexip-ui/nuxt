@@ -45,6 +45,17 @@ export interface ModuleOptions {
    */
   fullStyle?: boolean,
   /**
+   * Specify path of custom theme variables files
+   *
+   * You'd better pass the path of using alias (eg. `@/style/variables.scss`)
+   *
+   * @default {}
+   */
+  themeVarsPath: {
+    base?: string,
+    dark?: string
+  },
+  /**
    * Prefix for name of components
    *
    * @default 'V'
