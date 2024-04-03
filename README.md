@@ -31,11 +31,7 @@
 Add `@vexip-ui/nuxt` dependency to your project:
 
 ```sh
-# Using pnpm
-pnpm i -D @vexip-ui/nuxt
-
-# Using yarn
-yarn add -D @vexip-ui/nuxt
+npx nuxi@latest module add vexip-ui
 ```
 
 If you want to control the version of Vexip UI, you need to add `vexip-ui` dependency to your project too:
