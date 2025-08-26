@@ -25,6 +25,7 @@
             v-loading="true"
             style="width: 200px; height: 100px; background-color: var(--vxp-bg-color-reverse)"
           ></div>
+          <ThemeSwitch></ThemeSwitch>
         </VSpace>
       </div>
     </template>
@@ -32,6 +33,8 @@
 </template>
 
 <script setup lang="ts">
+import ThemeSwitch from './theme-switch.vue'
+
 import type { MenuOptions } from 'vexip-ui'
 
 const user = {
